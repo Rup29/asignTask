@@ -1,0 +1,156 @@
+<div class="taskList">
+        <div class="taskListtop">
+          <div class="leftHeading">
+            <span><i class="fa fa-list-ul" aria-hidden="true"></i></span>
+            <div class="hdnGroup">
+              <h2>Taskss</h2>
+              <h3>All Task</h3>
+            </div>
+          </div>
+          <div class="actionbtn">
+            <button type="button" (click)="addTak()" class="addBtn">
+              New Task
+            </button>
+            <button type="button" (click)="refreshTask()" class="addBtn">
+              Refersh
+            </button>
+          </div>
+          <div class="searchRecored">
+            <p>{{allUser.length}} Records</p>
+            <div class="serchForm">
+              <input type="text" placeholder="Search.."/><i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+          </div>
+         
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+                <tr>
+                    <th>
+                      <input type="checkbox">
+                    </th>
+                    <th>Assigned To</th>
+                    <th>Status</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th colspan="2">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of allUser; let i = index">
+                <td><input type="checkbox" id="{{i+1}}"></td>
+                <td>{{user.assigned}}</td>
+                <td>{{user.status}}</td>
+                <td>{{user.date}}</td>
+                <td>{{user.priority}}</td>
+                <td>{{user.driscription}}</td>
+                <td>
+                  <span  #dropDown class="dropdown editAction" >
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  
+                      <ul>
+                        <li (click)="userAction(user)">Edit</li>
+                        <li (click)="deleteTask(user.id, user.assigned)">Delete</li>
+                      </ul>
+                
+                  </span>
+                
+                </td>
+                <!-- <td><span (click)="userAction(user)" class="editAction"><i class="fa fa-caret-down" aria-hidden="true"></i></span><span (click)="deleteTask(user.id)" class="editAction"><i class="fa fa-caret-down" aria-hidden="true"></i></span></td> -->
+              </tr>
+              <tr *ngIf="allUser.length == 0">
+                <td colspan="7" style="text-align: center;">
+                  <span class="loding">No Records found</span>
+                </td>
+              </tr>
+     
+            </tbody>
+          </table>
+        </div>
+        <!---new Task-->
+        <div class="taskModal" #modal>
+          <div class="taskModalBody">
+                <div class="modalHeading">
+                  <h3>{{editMode? "Edit Task" : "New Task"}}</h3>
+                  <span class="closeBtn" (click)="closeModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </div>
+                <div class="modalBody">
+                  <form [formGroup]="taskForm" (ngSubmit)="newTaskForm()">
+                    <div class="formBody">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="formGroup">
+                            <label><span>*</span>Assigned To</label>
+                            <select formControlName="assigned">
+                              <option>User 1</option>
+                              <option>User 2</option>
+                              <option>User 3</option>
+                              <option>User 4</option>
+                              <option>User 5</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="formGroup">
+                            <label><span>*</span>Status</label>
+                            <select formControlName="status">
+                              <option>Completed</option>
+                              <option>In Progress</option>
+                              <option>Not Started</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="formGroup">
+                            <label>Due Date</label>
+                             <input type="date" formControlName="date">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="formGroup">
+                            <label><span>*</span>Priority</label>
+                            <select formControlName="priority">
+                              <option>Normal</option>
+                              <option>High</option>
+                              <option>Low</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="formGroup">
+                            <label>Driscription</label>
+                              <textarea formControlName="driscription"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="modalFooter">
+                      <button type="button" class="cancelBtn" (click)="closeModal()">Cancel</button>
+                      <button type="submit" class="saveBtn" [disabled]="taskForm.invalid">Save</button>
+                  </div>
+                  </form>
+                  
+                </div>
+              
+          </div>
+        </div>
+     <!---new Task-->
+     <div class="taskModal" #deleteModal>
+      <div class="taskModalBody">
+            <div class="modalHeading">
+              <h3>Delete</h3>
+              <span class="closeBtn" (click)="closeModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+            <div class="modalBody" style="padding: 20px;">
+            <p>Do You want to delete Task {{taskName}}</p>
+              
+            </div>
+            <div class="modalFooter">
+              <button type="button" class="saveBtn" (click)="closeModal()" style="margin-right: 10px;">No</button>
+              <button type="button" class="cancelBtn" (click)="conFirm()">Yes</button>
+          </div> 
+      </div>
+    </div>
+</div>

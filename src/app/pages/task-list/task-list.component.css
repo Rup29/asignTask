@@ -1,0 +1,292 @@
+.taskList{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+}
+.taskListtop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px ;
+    flex-wrap: wrap;
+}
+.actionbtn{
+    background: #FFC107;
+    border-radius: 5px;
+    border: 1px solid #FF9800;
+}
+.addBtn{
+    background: #FFC107;
+    display: inline-block;
+    color: #333;
+    padding: 9px 15px;
+    border-radius: 0px;
+    border: 1px solid #FFC107;
+    transition: 0.3s;
+    cursor: pointer;
+    border-right: 1px solid #FF9800;
+}
+.addBtn:last-child{
+    border-right: 1px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table tr th{
+    background: #fff;
+    color: #3a5ea1;
+    text-align: left;
+    font-weight: normal;
+    padding: 15px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #ccc;
+}
+table tr td{
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    font-weight: normal;
+    padding: 15px 15px;
+    border-bottom: 1px solid #ccc;
+}
+.leftHeading{
+    display: flex;
+    align-items: center;
+}
+.leftHeading h2{
+    color: #333;
+    font-size: 18px;
+    margin: 0px;
+}
+.leftHeading h3{
+    color: #333;
+    font-size: 15px;
+    margin: 0px;
+}
+.leftHeading  span{
+    width: 30px;
+    height: 30px;
+    background: #E91E63;
+    display: inline-flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: #fff;
+}
+.searchRecored{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.serchForm{
+    position: relative;
+}
+.serchForm input{
+    width: 200px;
+    height: 40px;
+    outline: 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #000;
+    font-size: 14px;
+}
+.serchForm i{
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    color: #000;
+    cursor: pointer;
+}
+.searchRecored{
+    margin-top: 10px;
+}
+.searchRecored p{color: #888;}
+.loding{
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    display: inline-block;
+}
+table{
+    border: 1px solid #ccc;
+}
+.dropdown{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    transition: 0.03s;
+    cursor: pointer;
+    position: relative;
+}
+.dropdown ul{
+    list-style: none;
+    position: absolute;
+    background: #fff;
+    padding: 12px;
+    box-shadow: 0px 0px 5px #ccc;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    top: 20px;
+    right: -45px;
+    z-index: 2;
+    display: none;
+
+}
+.dropdown:hover ul{
+    display: inline-block;
+}
+.dropdown ul li{
+    font-size: 14px;
+    color: #333;
+    padding: 3px 0px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.dropdown ul li:hover{
+    color: #FFC107;
+}
+.dropdown:hover{
+background: #ccc;
+}
+.taskModal{
+    background: rgb(0 0 0 / 47%);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    inset: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+.taskModalBody{
+    width: 800px;
+    height: auto;
+    background: #fff;
+    display: none;
+}
+.taskModal.active{
+    opacity: 1;
+    visibility: visible;
+}
+.taskModal.active .taskModalBody{
+     display: block;
+}
+.modalHeading {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+.modalHeading  h3{
+    font-size: 20px;
+    color: #888;
+    font-weight: normal;
+}
+.closeBtn{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.row{
+    margin: 0px -15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-md-6{
+    width: 50%;
+    padding: 0px 15px;
+}
+.formGroup{
+    position: relative;
+    padding-bottom: 25px;
+    width: 100%;
+}
+.formGroup label{
+    display: block;
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.formGroup label span{
+    color: #db0909;
+}
+.formGroup  select{
+    width: 100%;
+    height: 40px;
+    outline: 0px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 15px;
+}
+.formGroup  input{
+    width: 100%;
+    height: 40px;
+    outline: 0px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 15px;
+}
+
+.formGroup  textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    outline: 0px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 15px;
+}
+.col-md-12{
+    width: 100%;
+    padding: 0px 15px;
+}
+.formBody{    padding: 20px;}
+.modalFooter{
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+.modalFooter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.modalFooter button{
+    font-size: 14px;
+    outline: 0px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+.cancelBtn{
+    background: #FFC107;
+    border-radius: 5px;
+    border: 1px solid #FF9800;
+    color: #000;
+}
+.saveBtn{
+    background: #333;
+    border-radius: 5px;
+    border: 1px solid #000;
+    color: #FFC107;
+    margin-left: 10px;
+}
+.modalHeading{
+    position: relative;
+}
+.saveBtn[disabled]{
+    opacity: 0.5;
+}
